@@ -249,7 +249,7 @@ def toggle_active_links(pathname):
 def render_page_content(pathname):
     if pathname in ["/"]:
         #return html.P("IX Power Maps")
-        mymap = "./app/static/home.html"
+        mymap = "./app/static/about.html"
         return html.Div(
               html.Iframe(id="map", srcDoc= open(mymap,'r').read(), width='100%', height='600' )
         )
