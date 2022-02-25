@@ -31,7 +31,7 @@ dict = {}
 index =0
 for map in maps:
     dict[map] = map
-dict['about'] = "About IX Maps"
+dict['about'] = "About IX Power Cartographica"
 dict['sanluis'] = "San Luis Valley"  
 dict['colorado_partymap'] = "Colorado Party Map"  
 dict['colorado_districtmap_24feb22'] = "Colorado District Map"
