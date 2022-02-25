@@ -52,7 +52,7 @@ PLOTLY_LOGO = "./static/img/IX_PCarto_sm_23Feb21.png"
 search_bar = dbc.Row(
     [    dbc.Col(
             dbc.Button(
-                "Sidebar",  color="primary", className="ms-2", id="btn_sidebar",
+                "Sidebar",  color="primary", className="ms-2", id="btn_sidebar", size="sm"
             ),
             width="auto",
         ),  
@@ -69,7 +69,7 @@ navbar = dbc.Navbar(
                 # Use row and col to control vertical alignment of logo / brand
                 dbc.Row(
                     [
-                        #dbc.Col(html.Img(src=PLOTLY_LOGO, height="60px")),
+                        dbc.Col(html.Img(src=PLOTLY_LOGO, height="60px")),
                         #dbc.Col(dbc.NavbarBrand("Navbar", className="ms-2")),
                     ],
                     align="center",
@@ -114,7 +114,7 @@ def toggle_navbar_collapse(n, is_open):
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
     "position": "fixed",
-    "top": 82.5,
+    "top": 75.5,
     "left": 0,
     "bottom": 0,
     "width": "16rem",
@@ -123,7 +123,7 @@ SIDEBAR_STYLE = {
     "overflow-x": "hidden",
     "transition": "all 0.5s",
     "padding": "0.5rem 1rem",
-    "background-color": "#f8f9fa",
+    "background-color": "#f2f1ed",
 }
 
 SIDEBAR_HIDEN = {
@@ -144,17 +144,17 @@ SIDEBAR_HIDEN = {
 # add some padding.
 CONTENT_STYLE = {
     "transition": "margin-left .5s",
-    "margin-left": "18rem",
-    "margin-right": "2rem",
-    "padding": "2rem 1rem",
-    "background-color": "#f8f9fa",
+    "margin-left": "15rem",
+    "margin-right": "0rem",
+    "padding": "1rem 3rem",
+    "background-color": "#f2f1ed",
 }
 
 CONTENT_STYLE1 = {
     "transition": "margin-left .5s",
     "margin-left": "2rem",
     "margin-right": "2rem",
-    "padding": "2rem 1rem",
+    "padding": "1rem 1rem",
     "background-color": "#f8f9fa",
 }
 
@@ -192,6 +192,7 @@ application.layout = html.Div(
         sidebar,
         content,
     ],
+    style={ "background-color": "#f2f1ed"}
 )
 
 
