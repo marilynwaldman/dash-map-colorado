@@ -32,8 +32,7 @@ index =0
 for map in maps:
     dict[map] = map
 dict['about'] = "About IX Power Cartographica"
-dict['sanluis'] = "San Luis Valley"  
-dict['colorado_partymap'] = "Colorado Party Map"  
+   
 dict['colorado_districtmap_24feb22'] = "Colorado District Map"
 
     #if '.DS_Store' in maps: maps.remove('.DS_Store')
@@ -144,8 +143,8 @@ SIDEBAR_HIDEN = {
 # add some padding.
 CONTENT_STYLE = {
     "transition": "margin-left .5s",
-    "margin-left": "15rem",
-    "margin-right": "0rem",
+    "margin-left": "18rem",
+    "margin-right": "1rem",
     "padding": "1rem 3rem",
     "background-color": "#f2f1ed",
 }
