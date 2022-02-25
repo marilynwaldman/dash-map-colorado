@@ -2,12 +2,11 @@
 import os
 import dash
 import dash_bootstrap_components as dbc
-#import dash_core_components as dcc
 from dash import dcc
 from dash import html
 #import dash_html_components as html
 from dash.dependencies import Input, Output, State
-#import boto3
+from dash_bootstrap_components._components.Container import Container
 
 
 #s3_client = boto3.client('s3')
@@ -40,8 +39,8 @@ dict['colorado_partymap'] = "Colorado Party Map"
  
 
 #application = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-application = dash.Dash(external_stylesheets=[dbc.themes.SKETCHY])
-#application = dash.Dash(external_stylesheets=[dbc.themes.DARKLY])
+application = dash.Dash(external_stylesheets=[dbc.themes.CERULEAN])
+#application = dash.Dash(external_stylesheets=[dbc.themes.UNITED])
 #application = dash.Dash(external_stylesheets=[dbc.themes.FLATLY])
 
 
@@ -50,39 +49,32 @@ PLOTLY_LOGO = "./static/img/IX_PCarto_sm_23Feb21.png"
 
 
 search_bar = dbc.Row(
-    [
-    
-        dbc.Col(
+    [    dbc.Col(
             dbc.Button(
-                "Sidebar", outline=True, color="primary", className="ms-2", id="btn_sidebar",
+                "Sidebar",  color="primary", className="ms-2", id="btn_sidebar",
             ),
             width="auto",
-        ),    
-    ],
+        ),  
         
-
+    ],
     className="g-0 ms-auto flex-nowrap mt-3 mt-md-0",
-    align="right",
+    align="center",
 )
-
-
 
 navbar = dbc.Navbar(
     dbc.Container(
         [
             html.A(
-                
                 # Use row and col to control vertical alignment of logo / brand
                 dbc.Row(
                     [
-                        
-                        dbc.Col(html.Img(src=PLOTLY_LOGO, height="60px")),
-                        #dbc.Col(dbc.NavbarBrand("IX Water", className="ms-2")),
+                        #dbc.Col(html.Img(src=PLOTLY_LOGO, height="60px")),
+                        #dbc.Col(dbc.NavbarBrand("Navbar", className="ms-2")),
                     ],
-                    align="right",
+                    align="center",
                     className="g-0",
                 ),
-                href="https://ixwater.com",
+                href="https://plotly.com",
                 style={"textDecoration": "none"},
             ),
             dbc.NavbarToggler(id="navbar-toggler", n_clicks=0),
@@ -92,14 +84,19 @@ navbar = dbc.Navbar(
                 is_open=False,
                 navbar=True,
             ),
-            
-            
-        ]
+        ],
+        
     ),
-    color="light",
+    style={
+           "background-image": "url(/assets/banner.png)",
+           "background-repeat": "no-repeat",
+           "background-size" : "cover",
+           },
+    color="dark",
     dark=True,
-    
 )
+
+
 
 # add callback for toggling the collapse on small screens
 @application.callback(
@@ -116,7 +113,7 @@ def toggle_navbar_collapse(n, is_open):
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
     "position": "fixed",
-    "top": 62.5,
+    "top": 82.5,
     "left": 0,
     "bottom": 0,
     "width": "16rem",
@@ -130,7 +127,7 @@ SIDEBAR_STYLE = {
 
 SIDEBAR_HIDEN = {
     "position": "fixed",
-    "top": 62.5,
+    "top": 82.5,
     "left": "-16rem",
     "bottom": 0,
     "width": "16rem",
@@ -249,7 +246,7 @@ def toggle_active_links(pathname):
 def render_page_content(pathname):
     if pathname in ["/"]:
         #return html.P("IX Power Maps")
-        mymap = "./app/static/about.html"
+        mymap = "./app/static/sanluis.html"
         return html.Div(
               html.Iframe(id="map", srcDoc= open(mymap,'r').read(), width='100%', height='600' )
         )
