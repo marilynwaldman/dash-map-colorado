@@ -33,7 +33,7 @@ for map in maps:
     dict[map] = map
 dict['about'] = "About IX Power Cartographica"
    
-dict['colorado_districtmap_24feb22'] = "Colorado District Map"
+dict['colorado_districtmap_1mar22'] = "Colorado District Map"
 
     #if '.DS_Store' in maps: maps.remove('.DS_Store')
  
@@ -247,7 +247,7 @@ def toggle_active_links(pathname):
 def render_page_content(pathname):
     if pathname in ["/"]:
         #return html.P("IX Power Maps")
-        mymap = "./app/static/colorado_districtmap_24feb22.html"
+        mymap = "./app/static/colorado_districtmap_1mar22.html"
         return html.Div(
               html.Iframe(id="map", srcDoc= open(mymap,'r').read(), width='100%', height='600' )
         )
