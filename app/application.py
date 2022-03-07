@@ -35,6 +35,8 @@ dict['about'] = "About IX Power Cartographica"
    
 dict['colorado_districtmap_1mar22'] = "Colorado District Map"
 
+dict['register'] = "Colorado Voter Information"
+
     #if '.DS_Store' in maps: maps.remove('.DS_Store')
  
 
@@ -251,6 +253,45 @@ def render_page_content(pathname):
         return html.Div(
               html.Iframe(id="map", srcDoc= open(mymap,'r').read(), width='100%', height='600' )
         )
+    elif pathname in ["/register"]:
+        return   html.Div(
+            dbc.Container(
+            [  
+                html.Br(),
+                html.H4("Colorado Voter Information"),
+                html.Br(),
+                html.P(
+                    "Look up your official Colorado Voter Registration here "
+                    "to see what district and precinct you are in.",
+                    className="lead",
+                ),
+                html.Br(),
+                html.A(
+                   "Check your Colorado Voter Registration here.", href='https://www.sos.state.co.us/voter/pages/pub/olvr/findVoterReg.xhtml', target="_blank"
+                ),
+                html.Br(),
+                html.Hr(className="my-2"),
+                html.Br(),
+                html.P(
+
+                    "Please note that the voter lookup is very particular."
+                    "  You MUST enter the requested information exactly"
+                    "like your voter registration "
+                    "(i.e. 'Sam A. Smith' will return an error if you registered as 'Sam Adam Smith.')"
+        
+                ),
+                html.Br(),
+                html.Br(),
+                html.Br(),
+                html.Br()
+
+           ],
+           fluid=False,
+           className="py-3",
+        ),
+        className="p-2 bg-light rounded-3",
+)
+
     elif pathname in ["/" + str(map) for map in maps]:
 
 
